@@ -15,7 +15,7 @@ KZ.B36Clock = (function() {
         GetTime();
     };
 
-    var _CvtTimeToB36 = function (n)
+    var CvtTimeToB36 = function (n)
     {
         var base = 36; 
         var a = [];
@@ -64,7 +64,7 @@ KZ.B36Clock = (function() {
         n = parseInt (n / 1000);    // Reduce to seconds.
         n = parseInt (n / 60);      // Reduce to minutes.
     
-        _CvtTimeToB36 (n);
+        CvtTimeToB36 (n);
         setTimeout (function() { GetTime () }, 1000);
     }
 
@@ -77,9 +77,8 @@ KZ.B36Clock = (function() {
     
 	// Expose public functions/members.
     return {
-        Init			:	_Init,
-        CvtTimeToB36    :   _CvtTimeToB36
-	}
+        Init			:	_Init
+    }
 })();
 
 window.onload (KZ.B36Clock.Init());
