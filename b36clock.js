@@ -9,7 +9,7 @@ KZ.B36Clock = (function() {
     var b36dt = "";
 
     // Public
-	var _Init = function() {
+    var _Init = function() {
         epochStartDate = new Date("2015-01-01"); 
         epochStartMs = epochStartDate.valueOf();
         GetTime();
