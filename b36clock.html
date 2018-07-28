@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class="grid-container">
+    <div class="gridItemMain" id="divMain">
+        
+        <h2>Base-36 Clock</h2>
+
+        <p><i>(Minutes since Jan 1, 2015)</i></p>
+
+        <p id="B36Clock_clock"></p>
+
+        <span id="B36Clock_dt"></span>
+
+    </div>  
+
+<script src="b36clock.js"></script>
+
+<style>
+    .gridItemMain { grid-area: main; }
+
+    .gridItemMain {
+        text-align: center;
+        padding: 0px;
+    }
+
+    .grid-container {
+	    display: grid;
+	    grid-template-areas: 'main';
+	    grid-gap: 0px;
+    	grid-template-columns: auto;
+        padding: 0px;
+    }
+
+    body {
+        font-family: Arial;
+        color:rgb(255, 255, 255);
+        background-color: rgb(2, 63, 2);
+        text-align: center;
+    }
+
+    #B36Clock_dt {
+        background-color: white;
+        color:black;
+        font-size: 3.0em;
+        padding: 0px 20px 0px 20px;
+        font-family: 'Consolas';
+        font-weight: bold;
+    }
+</style>
+
+</body>
+</html>
