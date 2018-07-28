@@ -76,7 +76,7 @@ KZ.B36Clock = (function() {
     }
     
 	// Expose public functions/members.
-	return {
+    return {
         Init			:	_Init,
         CvtTimeToB36    :   _CvtTimeToB36
 	}
