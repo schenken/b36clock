@@ -15,6 +15,27 @@ KZ.B36Clock = (function() {
         GetTime();
     };
 
+    // Private
+    var GetTime = function() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+
+        m = PadTime (m);
+        s = PadTime (s);
+        document.getElementById ("B36Clock_clock").innerHTML = h + ":" + m + ":" + s;
+
+        // Calc number of minutes since start of epoch.
+        var n = today.getTime();    // No. milliseconds since 1/1/70
+        n -= epochStartMs;
+        n = parseInt (n / 1000);    // Reduce to seconds.
+        n = parseInt (n / 60);      // Reduce to minutes.
+    
+        CvtTimeToB36 (n);
+        setTimeout (function() { GetTime () }, 1000);
+    }
+
     var CvtTimeToB36 = function (n)
     {
         var base = 36; 
@@ -45,27 +66,6 @@ KZ.B36Clock = (function() {
         }
     
         return s;
-    }
-
-    // Private
-    var GetTime = function() {
-        var today = new Date();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var s = today.getSeconds();
-
-        m = PadTime (m);
-        s = PadTime (s);
-        document.getElementById ("B36Clock_clock").innerHTML = h + ":" + m + ":" + s;
-
-        // Calc number of minutes since start of epoch.
-        var n = today.getTime();    // No. milliseconds since 1/1/70
-        n -= epochStartMs;
-        n = parseInt (n / 1000);    // Reduce to seconds.
-        n = parseInt (n / 60);      // Reduce to minutes.
-    
-        CvtTimeToB36 (n);
-        setTimeout (function() { GetTime () }, 1000);
     }
 
     var PadTime = function (i) {
